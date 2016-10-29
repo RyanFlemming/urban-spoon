@@ -18,7 +18,6 @@ namespace Mod_9_Homework
 	public partial class MainWindow : Window
 	{
 		int counter = 0; // For searching students
-		List<Student> studentCollection = new List<Student>();
 
 		Student searchResult = new Student();
 
@@ -39,7 +38,7 @@ namespace Mod_9_Homework
 			student.City = txtCity.Text;
 
 			// Adding student to our list collection
-			studentCollection.Add(student);
+			student.studentCollection.Add(student);
 
 			Clear();
 		}
