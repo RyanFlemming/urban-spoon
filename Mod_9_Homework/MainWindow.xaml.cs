@@ -17,9 +17,9 @@ namespace Mod_9_Homework
 {
 	public partial class MainWindow : Window
 	{
-		int counter = 0; // For searching students
-
+		int counter = -1; // For searching students
 		Student searchResult = new Student();
+		List<Student> studentCollection = new List<Student>();
 
 		public MainWindow()
 		{
@@ -38,7 +38,7 @@ namespace Mod_9_Homework
 			student.City = txtCity.Text;
 
 			// Adding student to our list collection
-			student.studentCollection.Add(student);
+			studentCollection.Add(student);
 
 			Clear();
 		}
@@ -56,21 +56,20 @@ namespace Mod_9_Homework
 			if (counter < 0)
 			{
 				counter = 0;
+				MessageBox.Show("First result already reached.");
 			}
-			searchResult = studentCollection[counter] as Student;
-			DisplayResult(searchResult);
+			DisplayResult(studentCollection[counter]);
 		}
 
 		private void btnNext_Click(object sender, RoutedEventArgs e)
 		{
 			counter += 1;
-			if (counter == studentCollection.Count)
+			if (counter >= studentCollection.Count)
 			{
 				counter = 0;
 				MessageBox.Show("Last result reached. Wrapping around.");
 			}
-			Student searchResult = studentCollection[counter] as Student;
-			DisplayResult(searchResult);
+			DisplayResult(studentCollection[counter]);
 		}
 
 		private void DisplayResult(Student student)

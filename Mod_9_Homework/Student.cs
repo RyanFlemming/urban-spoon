@@ -14,12 +14,6 @@ namespace Mod_9_Homework
 		private string lastName;
 		private string city;
 
-		public List<Student> studentCollection;
-		public Student()
-		{
-			studentCollection = new List<Student>();
-		}
-
 		public string City
 		{
 			get { return city; }
